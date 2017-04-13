@@ -88,13 +88,21 @@
           <div class="mdl-grid">
             <div class="mdl-cell
                         mdl-cell--2-offset-mobile
-                        mdl-cell--2-col-mobile
+                        mdl-cell--3-col-mobile
 
                         mdl-cell--1-offset-tablet
-                        mcl-cell--10-col-tablet">
+                        mcl-cell--5-col-tablet
+                        
+                        mdl-cell--2-offset
+                        mcl-cell--8-col">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="investimento">
                 <label class="mdl-textfield__label" for="investimento">Investimento Inicial</label>
+                <span class="mdl-textfield__error">Entre com um número!</span>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="aporteMensal">
+                <label class="mdl-textfield__label" for="investimento">Aporte Mensal</label>
                 <span class="mdl-textfield__error">Entre com um número!</span>
               </div>
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -107,17 +115,19 @@
                 <label class="mdl-textfield__label" for="periodo">Anos</label>
                 <span class="mdl-textfield__error">Entre com um número!</span>
               </div>
+              <!-- Raised button with ripple -->
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btncalcular">
+                Calcular
+              </button>
+              <br/>
+              <p class="mdl-paragraph" id="resultado">resultado</p>
             </div>
             <div class="mdl-cell
                         mdl-cell--2-col 
                         mdl-cell--4-offset 
                         mcl-cell--8-col-tablet 
                         mdl-cell--align-right">
-              <!-- Raised button with ripple -->
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btncalcular">
-                Calcular
-              </button>
-              <p class="mdl-paragraph" id="resultado">resultado</p>
+              
             </div>
           </div>
         </form>

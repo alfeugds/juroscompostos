@@ -1,7 +1,7 @@
 /*  */
 var test = require('unit.js');
 
-// read vanilla file and load its global function
+// read vanilla file and load its global module juros
 eval(require('fs').readFileSync('./app/scripts/juros.js', 'utf8'));
 
 describe('Calcular Juros', function() {
@@ -13,10 +13,10 @@ describe('Calcular Juros', function() {
       periodo: 2
     };
     var expectedResult = 12.1;
-    var j = juros();
+    
 
     // act
-    var result = j.calcularJuros(params);
+    var result = juros.calcularJuros(params);
 
     // assert
     test.value(result).isEqualTo(expectedResult);
@@ -30,10 +30,9 @@ describe('Calcular Juros', function() {
       periodo: 12
     };
     var expectedResult = 1126.83;
-    var j = juros();
 
     // act
-    var result = j.calcularJuros(params);
+    var result = juros.calcularJuros(params);
 
     // assert
     test.value(result).isEqualTo(expectedResult);
@@ -47,10 +46,9 @@ describe('Calcular Juros', function() {
       periodo: 12
     };
     var expectedResult = 1126.83;
-    var j = juros();
 
     // act
-    var result = j.calcularJuros(params);
+    var result = juros.calcularJuros(params);
 
     // assert
     test.value(result).isEqualTo(expectedResult);
@@ -65,10 +63,9 @@ describe('Calcular Juros', function() {
       tempoEmMeses: 10 * 12
     };
     var expectedResult = 92635.44;
-    var j = juros();
 
     // act
-    var result = j.calcularJurosComAporteMensal(params);
+    var result = juros.calcularJurosComAporteMensal(params);
 
     // assert
     test.value(result).isEqualTo(expectedResult);
@@ -83,10 +80,9 @@ describe('Calcular Juros', function() {
       tempoEmMeses: 2 * 12
     };
     var expectedResult = 14109.49;
-    var j = juros();
 
     // act
-    var result = j.calcularJurosComAporteMensal(params);
+    var result = juros.calcularJurosComAporteMensal(params);
     
     // assert
     test.value(result).isEqualTo(expectedResult);

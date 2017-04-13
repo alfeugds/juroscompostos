@@ -16,6 +16,7 @@
  *  limitations under the License
  *
  */
+/* global juros*/
 /* eslint-env browser */
 (function(juros) {
   'use strict';
@@ -79,8 +80,6 @@
 
   // Your custom JavaScript goes here
 
-  var j = juros();
-
   var $btncalcular = document.getElementById('btncalcular');
   var $investimento = document.getElementById('investimento');
   var $juros = document.getElementById('juros');
@@ -96,7 +95,7 @@
     };
 
     // act
-    var result = j.calcularJuros(params);
+    var result = juros.calcularJuros(params);
     $resultado.textContent = result;
   });
 })(juros);
