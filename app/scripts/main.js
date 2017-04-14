@@ -80,22 +80,31 @@
 
   // Your custom JavaScript goes here
 
+  // var $form = document.getElementById('calcularJurosCompostos');
+
   var $btncalcular = document.getElementById('btncalcular');
-  var $investimento = document.getElementById('investimento');
+  var $investimentoInicial = document.getElementById('investimentoInicial');
+  var $aporteMensal = document.getElementById('aporteMensal');
   var $juros = document.getElementById('juros');
   var $periodo = document.getElementById('periodo');
 
   var $resultado = document.getElementById('resultado');
+
   $btncalcular.addEventListener('click', function() {
-    // alert('calculated!');
     var params = {
-      investimento: $investimento.value,
-      juros: $juros.value,
-      periodo: $periodo.value
+      investimentoInicial: $investimentoInicial.valueAsNumber,
+      aporteMensal: $aporteMensal.valueAsNumber,
+      taxaMensal: $juros.valueAsNumber,
+      tempoEmMeses: $periodo.valueAsNumber * 12
     };
 
-    // act
-    var result = juros.calcularJuros(params);
+    var result = juros.calcularJurosComAporteMensal(params);
     $resultado.textContent = result;
   });
+
+  // initialize with default values
+  $investimentoInicial.value = 1000;
+  $aporteMensal.value = 500;
+  $juros.value = 0.65;
+  $periodo.value = 10;
 })(juros);

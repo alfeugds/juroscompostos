@@ -18,7 +18,7 @@ var juros = (function() {
       var months = params.tempoEmMeses;
       var futureValue = params.investimentoInicial;
       var investment = params.aporteMensal;
-      var monthlyRate = params.taxaMensal;
+      var monthlyRate = params.taxaMensal / 100;
 
       for (var i = 1; i <= months; i++) {
         futureValue = futureValue * (1 + monthlyRate) + investment;

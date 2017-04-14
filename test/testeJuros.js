@@ -59,7 +59,7 @@ describe('Calcular Juros', function() {
     var params = {
       investimentoInicial: 1000,
       aporteMensal: 500,
-      taxaMensal: .65 / 100,
+      taxaMensal: .65,
       tempoEmMeses: 10 * 12
     };
     var expectedResult = 92635.44;
@@ -76,7 +76,7 @@ describe('Calcular Juros', function() {
     var params = {
       investimentoInicial: 1000,
       aporteMensal: 500,
-      taxaMensal: .65 / 100,
+      taxaMensal: .65,
       tempoEmMeses: 2 * 12
     };
     var expectedResult = 14109.49;
