@@ -24,11 +24,13 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
-.mdl-cell>form {    
+.mdl-juros-compostos .mdl-cell {    
     padding-top: 10px;
+}
+.mdl-juros-compostos .mdl-cell>form {    
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 15px;
 }
 .mdl-juros-compostos .mdl-layout__content .page-content{
   padding-top: 20px;
@@ -37,7 +39,7 @@ html, body {
 
 .mdl-juros-compostos .mdl-layout__content section:not(:last-of-type) {
   position: relative;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 .mdl-juros-compostos section.section--center {
   max-width: 570px;

@@ -65,32 +65,25 @@
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="/">Simular Investimento</a>
-          <a class="mdl-navigation__link" href="/sobre.html">Sobre</a>
+          <a class="mdl-navigation__link" href="#/simulador">Simular Investimento</a>
+          <a class="mdl-navigation__link" href="#/sobre">Sobre</a>
         </nav>
       </div>
     </header>
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">Simulador de Investimento</span>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="/">Simular Investimento</a>
-        <a class="mdl-navigation__link" href="/sobre.html">Sobre</a>
+        <a class="mdl-navigation__link" href="#/simulador">Simular Investimento</a>
+        <a class="mdl-navigation__link" href="#/sobre">Sobre</a>
       </nav>
     </div>
     <main class="mdl-layout__content">
       <div class="page-content">
         <!-- Your content goes here -->
         <div id="simulador">
-
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-
-
-            <div class="mdl-cell
-                            mdl-cell--1-col-mobile
-
-                            mdl-cell--2-offset-tablet
-                            mcl-cell--2-col-tablet
-                            mdl-cell--3-offset-desktop">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell mdl-cell--8-col">
               <form onsubmit="event.preventDefault();" id="calcularJurosCompostos">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="investimentoInicial">
@@ -117,14 +110,24 @@
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btncalcular">
                     Calcular
                   </button>
-
-                <p style="padding: 15px 15px; font-size:14px;" class="mdl-paragraph" id="resultado">resultado</p>
+                <!--<p style="padding: 15px 15px; font-size:14px;" class="mdl-paragraph" id="resultado">resultado</p>-->
               </form>
             </div>
+            <div class="mdl-layout-spacer"></div>
           </section>
-
+          <section id='sectionResultado' class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="display:none;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>Resultado: R$ <span id="resultado">resultado</span></h4>
+                <!--<p style="padding: 15px 15px; font-size:14px;" class="mdl-paragraph" id="resultado">resultado</p>-->
+                Com um Investimento Inicial de <span>R$ {{investimentoInicial}}</span> e um Aporte Mensal de R$ {{aporteMensal}}
+                a uma taxa de {{juros}}% a.m. no período de {{periodo}} anos, o Montante será de R$ {{montante}}.
+                <br>Use estes dados apenas como referência, e sempre confira todos os valores e taxas na hora de investir.
+              </div>
+            </div>
+          </section>
         </div>
-        <div id="sobre">
+        <div id="sobre" class="" style="display:none;">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">

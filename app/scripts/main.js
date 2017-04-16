@@ -87,8 +87,37 @@
   var $aporteMensal = document.getElementById('aporteMensal');
   var $juros = document.getElementById('juros');
   var $periodo = document.getElementById('periodo');
-
   var $resultado = document.getElementById('resultado');
+
+  var $sectionResultado = document.getElementById('sectionResultado');
+
+  var $simulador = document.getElementById('simulador');
+
+  var $layout = document.querySelector('.mdl-layout');
+
+  function showResultado() {
+    $sectionResultado.style.display = 'block';
+  }
+
+  function toggleDrawer() {
+    $layout.MaterialLayout.toggleDrawer();
+  }
+
+  function setNavigationListeners() {
+    var links = document.querySelectorAll('.mdl-navigation__link');
+
+    for (var i = 0; i < links.length; i++) {
+      var l = links[i];
+      l.addEventListener('click', function(e) {
+        var href = this.getAttribute('href'); // mostly in the format '#/sobre'
+        var screenName = href.split('/')[1];
+
+        var screen = document.getElementById(screenName);
+        screen.style.display = 'block';
+        toggleDrawer();
+      });
+    }
+  }
 
   $btncalcular.addEventListener('click', function() {
     var params = {
@@ -100,6 +129,8 @@
 
     var result = juros.calcularJurosComAporteMensal(params);
     $resultado.textContent = result;
+
+    showResultado();
   });
 
   // initialize with default values
@@ -107,4 +138,6 @@
   $aporteMensal.value = 500;
   $juros.value = 0.65;
   $periodo.value = 10;
+
+  setNavigationListeners();
 })(juros);
