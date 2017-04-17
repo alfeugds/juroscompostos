@@ -95,6 +95,8 @@
 
   var $drawer = document.querySelector('.mdl-layout__drawer');
 
+  var $pages = document.querySelectorAll('section.page');
+
   function showResultado() {
     $sectionResultado.style.display = 'block';
   }
@@ -109,7 +111,11 @@
     var screenName = href.split('/')[1];
 
     var screen = document.getElementById(screenName);
-    screen.style.display = 'block';
+
+    $pages.forEach(function(a) {
+      a.classList.remove('is-visible');
+    });
+    screen.classList.add('is-visible');
     hideDrawer();
   }
 

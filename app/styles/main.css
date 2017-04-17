@@ -27,6 +27,9 @@ html, body {
 .mdl-juros-compostos .mdl-cell {    
     padding-top: 10px;
 }
+.mdl-juros-compostos section.page:not(.is-visible){
+  display:none;
+}
 .mdl-juros-compostos .mdl-cell>form {    
     width: 90%;
     margin: 0 auto;
