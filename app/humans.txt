@@ -11,4 +11,4 @@
 
 # TECHNOLOGY COLOPHON
 
-  HTML5, CSS3, Vanilla Javascript, Material Design Lite library
+  HTML5, CSS3, Vanilla Javascript, Web Starter Kit, Material Design Lite library

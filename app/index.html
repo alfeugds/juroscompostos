@@ -86,22 +86,22 @@
             <div class="mdl-cell mdl-cell mdl-cell--8-col">
               <form onsubmit="event.preventDefault();" id="calcularJurosCompostos">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="investimentoInicial">
+                  <input class="mdl-textfield__input" type="number" step="0.01" pattern="[0-9]*(\.[0-9]+)?" id="investimentoInicial">
                   <label class="mdl-textfield__label" for="investimentoInicial">Investimento Inicial</label>
                   <span class="mdl-textfield__error">Entre com um número!</span>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="aporteMensal">
+                  <input class="mdl-textfield__input" type="number" step="0.01" pattern="[0-9]*(\.[0-9]+)?" id="aporteMensal">
                   <label class="mdl-textfield__label" for="aporteMensal">Aporte Mensal</label>
                   <span class="mdl-textfield__error">Entre com um número!</span>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="number" step="0.01" id="juros">
+                  <input class="mdl-textfield__input" type="number" step="0.00001" id="juros">
                   <label class="mdl-textfield__label" for="juros">Juros Mensais (%)</label>
                   <span class="mdl-textfield__error">Entre com um número!</span>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="periodo">
+                  <input class="mdl-textfield__input" type="number" pattern="[0-9]*(\.[0-9]+)?" id="periodo">
                   <label class="mdl-textfield__label" for="periodo">Anos</label>
                   <span class="mdl-textfield__error">Entre com um número!</span>
                 </div>
@@ -118,7 +118,7 @@
           <section id='sectionResultado' class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="display:none;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
-                <h4>Resultado: R$ <span id="resultado">resultado</span></h4>
+                <h4>Resultado: <span id="resultado">resultado</span></h4>
                 <!--<p style="padding: 15px 15px; font-size:14px;" class="mdl-paragraph" id="resultado">resultado</p>-->
                 Com um Investimento Inicial de <span>R$ {{investimentoInicial}}</span> e um Aporte Mensal de R$ {{aporteMensal}}
                 a uma taxa de {{juros}}% a.m. no período de {{periodo}} anos, o Montante será de R$ {{montante}}.

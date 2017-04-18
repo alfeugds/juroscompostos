@@ -97,6 +97,12 @@
 
   var $pages = document.querySelectorAll('section.page');
 
+  var currencyFormatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2
+  });
+
   function showResultado() {
     $sectionResultado.style.display = 'block';
   }
@@ -137,7 +143,7 @@
     };
 
     var result = juros.calcularJurosComAporteMensal(params);
-    $resultado.textContent = result;
+    $resultado.textContent = currencyFormatter.format(result);
 
     showResultado();
   });
