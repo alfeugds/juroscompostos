@@ -120,7 +120,7 @@
   }
 
   function setNavigationListeners() {
-    var links = document.querySelectorAll('.mdl-navigation__link');
+    var links = document.querySelectorAll('.spa-navigation-link');
 
     for (var i = 0; i < links.length; i++) {
       var l = links[i];

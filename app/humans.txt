@@ -3,12 +3,12 @@
 
 # TEAM
 
-  <name> -- <role> -- <twitter>
+  Alfeu Santos -- Developer -- @alfeugds
 
 # THANKS
 
-  <name>
+  My wife, my family and friends
 
 # TECHNOLOGY COLOPHON
 
-  HTML5, CSS3
+  HTML5, CSS3, Vanilla Javascript, Material Design Lite library
