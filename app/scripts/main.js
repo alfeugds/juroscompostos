@@ -145,8 +145,9 @@
 
     var result = juros.calcularJurosComAporteMensal(params);
     result = currencyFormatter.format(result);
-    var explanationResult = 'Com um Investimento Inicial de <span>{{investimentoInicial}}</span> e um Aporte Mensal de {{aporteMensal}}' +
-      ' a uma taxa de {{juros}}% a.m. no período de {{periodo}} anos, o Montante será de {{montante}}.'
+    var explanationResult = 'Com um Investimento Inicial de <span> {{investimentoInicial}} </span> e um Aporte Mensal de {{aporteMensal}}' +
+      ' a uma taxa de {{juros}}% a.m. no período de {{periodo}} anos, o Montante será de {{montante}}.';
+    explanationResult = explanationResult
         .replace(
           '{{investimentoInicial}}',
           currencyFormatter.format(params.investimentoInicial)
