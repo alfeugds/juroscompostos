@@ -88,6 +88,7 @@
   var $juros = document.getElementById('juros');
   var $periodo = document.getElementById('periodo');
   var $resultado = document.getElementById('resultado');
+  var $resultadoExplicado = document.getElementById('resultadoExplicado');
 
   var $sectionResultado = document.getElementById('sectionResultado');
 
@@ -143,7 +144,24 @@
     };
 
     var result = juros.calcularJurosComAporteMensal(params);
-    $resultado.textContent = currencyFormatter.format(result);
+    result = currencyFormatter.format(result);
+    var explanationResult = 'Com um Investimento Inicial de <span>{{investimentoInicial}}</span> e um Aporte Mensal de {{aporteMensal}}' +
+      ' a uma taxa de {{juros}}% a.m. no período de {{periodo}} anos, o Montante será de {{montante}}.'
+        .replace(
+          '{{investimentoInicial}}',
+          currencyFormatter.format(params.investimentoInicial)
+        )
+        .replace(
+          '{{aporteMensal}}',
+          currencyFormatter.format(params.aporteMensal)
+        )
+        .replace('{{juros}}', currencyFormatter.format(params.taxaMensal))
+        .replace('{{periodo}}', $periodo.valueAsNumber)
+        .replace('{{montante}}', result);
+
+    $resultadoExplicado.innerHTML = explanationResult;
+
+    $resultado.textContent = result;
 
     showResultado();
   });

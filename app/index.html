@@ -102,7 +102,7 @@
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="number" pattern="[0-9]*(\.[0-9]+)?" id="periodo">
-                  <label class="mdl-textfield__label" for="periodo">Anos</label>
+                  <label class="mdl-textfield__label" for="periodo">Período (em Anos)</label>
                   <span class="mdl-textfield__error">Entre com um número!</span>
                 </div>
                 <br/>
@@ -120,8 +120,7 @@
               <div class="mdl-card__supporting-text">
                 <h4>Resultado: <span id="resultado">resultado</span></h4>
                 <!--<p style="padding: 15px 15px; font-size:14px;" class="mdl-paragraph" id="resultado">resultado</p>-->
-                Com um Investimento Inicial de <span>R$ {{investimentoInicial}}</span> e um Aporte Mensal de R$ {{aporteMensal}}
-                a uma taxa de {{juros}}% a.m. no período de {{periodo}} anos, o Montante será de R$ {{montante}}.
+                <div id="resultadoExplicado"></div>
                 <br>Use estes dados apenas como referência, e sempre confira todos os valores e taxas na hora de investir.
               </div>
             </div>
