@@ -6,3 +6,4 @@ app.yaml
 npm-debug.log
 launch.json
 .publish
+.vscode
