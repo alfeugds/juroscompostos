@@ -30,6 +30,10 @@ html, body {
     flex: 1 0 auto;
 }
 
+.mdl-juros-compostos footer {    
+    min-height: 70px;
+}
+
 .mdl-juros-compostos .mdl-cell {    
     padding-top: 10px;
 }
