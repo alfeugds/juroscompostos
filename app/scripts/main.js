@@ -98,6 +98,8 @@
 
   var $pages = document.querySelectorAll('section.page');
 
+  var $defaultPage = document.getElementById('simulador');
+
   var currencyFormatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
@@ -113,12 +115,7 @@
     }
   }
 
-  function showPage() {
-    var href = this.getAttribute('href');
-    var screenName = href.split('/')[1];
-
-    var screen = document.getElementById(screenName);
-
+  function showScreen(screen) {
     $pages.forEach(function(a) {
       a.classList.remove('is-visible');
     });
@@ -126,19 +123,19 @@
     hideDrawer();
   }
 
-  function setNavigationListeners() {
-    var links = document.querySelectorAll('.spa-navigation-link');
+  function locationHashChanged() {
+    var screenName = location.hash.split('/')[1];
 
-    for (var i = 0; i < links.length; i++) {
-      var l = links[i];
-      l.addEventListener('click', showPage);
-    }
+    var screen = document.getElementById(screenName);
+    showScreen(screen || $defaultPage);
   }
+
+  window.onhashchange = locationHashChanged;
 
   $btncalcular.addEventListener('click', function() {
     var params = {
-      investimentoInicial: $investimentoInicial.valueAsNumber,
-      aporteMensal: $aporteMensal.valueAsNumber,
+      investimentoInicial: $investimentoInicial.valueAsNumber || 0,
+      aporteMensal: $aporteMensal.valueAsNumber || 0,
       taxaMensal: $juros.valueAsNumber,
       tempoEmMeses: $periodo.valueAsNumber * 12
     };
@@ -148,17 +145,17 @@
     var explanationResult = 'Com um Investimento Inicial de <span> {{investimentoInicial}} </span> e um Aporte Mensal de {{aporteMensal}}' +
       ' a uma taxa de {{juros}}% a.m. no período de {{periodo}} anos, o Montante será de {{montante}}.';
     explanationResult = explanationResult
-        .replace(
-          '{{investimentoInicial}}',
-          currencyFormatter.format(params.investimentoInicial)
-        )
-        .replace(
-          '{{aporteMensal}}',
-          currencyFormatter.format(params.aporteMensal)
-        )
-        .replace('{{juros}}', currencyFormatter.format(params.taxaMensal))
-        .replace('{{periodo}}', $periodo.valueAsNumber)
-        .replace('{{montante}}', result);
+      .replace(
+        '{{investimentoInicial}}',
+        currencyFormatter.format(params.investimentoInicial)
+      )
+      .replace(
+        '{{aporteMensal}}',
+        currencyFormatter.format(params.aporteMensal)
+      )
+      .replace('{{juros}}', params.taxaMensal)
+      .replace('{{periodo}}', $periodo.valueAsNumber)
+      .replace('{{montante}}', result);
 
     $resultadoExplicado.innerHTML = explanationResult;
 
@@ -173,5 +170,5 @@
   $juros.value = 0.65;
   $periodo.value = 10;
 
-  setNavigationListeners();
+  locationHashChanged();
 })(juros);
